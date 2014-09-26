@@ -1,2 +1,45 @@
 
+Let's consider this problem in a high and theoritical point of view. We know that we have a priority queue that supports insert and delete-min in $O(log(n))$ worst-case execution time. This means that :
+\begin{itemize}
+	\item $\exists \alpha$ such that the real execution time of insert is always less than $\alpha log(n)$
+	\item $\exists \beta$ such that the real execution time of delete-min is always less than $\beta log(n)$
+\end{itemize}
 
+The main idea is that if we begin with an initially empty tree, there will always be more insert than delete-min. Therefore we can design a potential function that makes the amortized cost of insert a little bit higher (but in the same asymptotic class) and makes the amortized cost of delete-min constant.
+
+Let's call $n$ the total number of nodes in the tree. We are now able to define our potential function $\Phi(n)$ :
+for $ n > 0, \Phi(n) = \beta n log(n)$ ; $\Phi(0) = 0 $ (by continuity)
+
+\newline
+
+Let's compute the sum of the real cost and the potential variation of the two operations insert and delete-min.
+First for delete-min, the tree has initially n nodes and we insert a new one.
+
+$real cost + \Delta\Phi \leqslant \alpha log(n) + \beta((n+1)log(n+1)-nlog(n))$
+
+Let's compute separately $ \Delta\Phi / \beta $ :
+
+$ \Delta\Phi / \beta  = n log(n+1) -n log(n) + log(n+1)$
+
+$= n log(\frac{n+1}{n}) + log(n+1)$
+
+$= n log(1+ 1/n) + log(n+1)$
+
+$= n[1/n + o(1/n)] + log(n+1)$
+
+$= log(n+1) +1 + o(1) $
+
+$= O(log(n))$
+
+Therefore, $real cost + \Delta\Phi \leqslant O(log(n))$, the amortized cost of insert is less than $log(n)$.
+Let's do the same for the delete-min operation :
+
+$real cost + \Delta\Phi \leqslant \beta log(n) + \beta(nlog(n)-(n+1)log(n+1))$
+
+$real cost + \Delta\Phi \leqslant \beta log(n) + \beta(nlog(n)-(n+1)log(n))$
+
+$real cost + \Delta\Phi \leqslant \beta log(n) - \beta(log(n))$
+
+$real cost + \Delta\Phi \leqslant 0$
+
+Thus, the amortized time of delete-min operation is $O(1)$.
