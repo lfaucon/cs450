@@ -29,8 +29,11 @@ i.e $\Phi(a)=n-\#(I(a))$ .
 \paragraph{}
 When we find the next permutation, we don't change any element before $K(a)$. This part doesn't contribute to any change to the potential $\Phi(a)$. The only part that can contribute in a change of potential is the part beginning at $K(a)$.
 \newline
-By swapping $a[K(a)]$ and $a[L(a)]$, we contribute at most in a change of $+2$ in the potential. Then by reversing the end of the list, we are sure that the potential decreases by at least $n-K(a)-2\ $ because every index in $K(a)+1,..,n-1$ was not in $I(a)$ before swapping $a[K(a)]\ $ and $a[L(a)]\ $.
-\paragraph{}
-Thus we have $\Delta\Phi(a)\leq{4-(n-K(a))}$ .
+(We note $a'$ the permutation after the swap of $a[K(a)]$ and $a[L(a)]$).
+The swap of $a[K(a)]$ and $a[L(a)]$, contributes for a change between $-2$ and $0$ in the potential. This is because the indices $K(a)+1,..,n$ are such that $a[K(a)+1]>a[K(a)+2]>..>a[L(a)]>a[L(a)]$: after the swap we still have $a[L(a)]=a'[K(a)]<a'[K(a)+1]$, the only difference can come from the new relations between $a'[L(a)-1],a'[L(a)],a'[L(a)]$. We had $a[L(a)-1]>a[L(a)]>a[L(a)+1]$ but it may have changed.
 \newline
+Then by reversing the end of the list, the potential decreases by at least $n-K(a)-3\ $ because every index in $K(a)+1,..,n-1$ was not in $I(a)$ before swapping $a[K(a)]\ $ and $a[L(a)]\ $.
+\newline
+Thus we have $\Delta\Phi(a)\leq{3-(n-K(a))}$ .
+\paragraph{}
 Therefore, we have $realCost+3*\Delta\Phi=O(1)$. The operation runs in amortized constant time.
