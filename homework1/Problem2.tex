@@ -1,2 +1,15 @@
+We need a potential function that takes into account the difference between the current array condition and the perfect condition which is a half-full array. We denote by $n$ the current length of the array (which means that when an operation modifying the length of the array is performed, $n_{before} \neq n_{after}$. We have chosen the following potential function : $\Phi = 6 |\# (used slots) - n/2|$.
 
+This potential function garantees that the simple insert and delete operations without modifying the length of the array will still be performed in constant amortized time. Let's study what happens when we insert an element in an initially full array.
 
+$real cost + \Delta\Phi =$
+
+$ (n_{before} + n_{after}) +6(|\#_{after} (used slots)-n_{after}/2|-|\#_{before} (used slots)-n_{before}/2|)$
+
+Let's use the notations : $n_{before} = N$, $n_{after} = 2N$. Then we have :
+
+$real cost + \Delta\Phi = 3N +6(1-(N-N/2))$
+
+$real cost + \Delta\Phi = 3N +6(1-N/2)$
+
+$real cost + \Delta\Phi = 6$
