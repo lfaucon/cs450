@@ -14,9 +14,9 @@ $S_3$ & 4 3 2 1 \\
 
 \paragraph{2.} 
 \paragraph{}
-The worst case scenario for pop is for any given integer k when $S_0$ contains one element and for i from 1 to k $S_i$ is half full. In that state a pop will empty $S_0$ which will then take elements from $S_1$ emptying it in the process. $S_1$ will then take elements from $S_2$ emptying it in the process. This so empties every $S_i$ until the last one resulting in a number of operation equal to the number of elements in the stack. We can also realize that the resulting state is the worst case scenario for a push operation.
+The worst case scenario for pop is for any given integer k when $S_0$ contains one element and for i from 1 to k $S_i$ is half full. In that state a pop will empty $S_0$ which will then take elements from $S_1$ emptying it in the process. $S_1$ will then take elements from $S_2$ emptying it in the process. This so empties every $S_i$ until the last one resulting in a number of operation equal to the number of elements in the stack.
 \paragraph{}
-The worst case for push is for any given integer k when for i from 0 to k $S_i$ is completely full. In that state pushing an element in the stack will overload $S_0$ which will then push its elements on $S_1$ overloading it in the process. $S_1$ will then push its elements on $S_2$ overloading it in the process. This so overload every $S_i$ until the last one resulting in a number of operation equal to the number of elements in the stack. We can also realize that the resulting state is the worst case scenario for a pop operation.
+The worst case for push is for any given integer k when for i from 0 to k $S_i$ is completely full. In that state pushing an element in the stack will overload $S_0$ which will then push its elements on $S_1$ overloading it in the process. $S_1$ will then push its elements on $S_2$ overloading it in the process. This so overloads every $S_i$ until the last one resulting in a number of operation equal to the number of elements in the stack.
 \paragraph{}
 The worst case scenario for pop and push are both in linear $O(n)$ time.
 
@@ -27,14 +27,13 @@ Let $k$ be any integer and $n=2^k-1$.
 
 \paragraph{Initial state : } Empty stack
 \paragraph{Operation sequence : }
-\begin{enumerate}
+\begin{itemize}
 \item{}n pushes
-\item{}n times a push followed by a pop
 \item{}n pops
-\end{enumerate}
+\end{itemize}
 
 \paragraph{}
-The second part of the proposed sequence of operations consist of n worst case pushes and n worst case pops. That makes $O(n^2)$ basic operations. We can then conclude that the two operations can't be achieved in constant amortized time.
+Since the $k-1$ first stacks can contain at  most $2^{k-1}-1$ elements, we are sure that at least $2^{k-1}$ elements went at least in the $k$-th stack. However it takes one operation to move one element from one stack to the next, so these $2^{k-1}$ elements required $k \times 2^{k-1} = O(nlog(n))$ operations. This grows faster than the length of the sequence.
 
 
 
