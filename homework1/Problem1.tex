@@ -15,23 +15,22 @@ For such permutation $a$, we define:
 The cost of finding the next permutation is then:
 \begin{itemize}
 \item{} $n-K(a)-1$ to find $K(a)$
-\item{} $n-K(a)-1$ at most to find the index $L(a)$
+\item{} $n-K(a)-2$ at most to find the index $L(a)$ (because $L(a)$ is in the worst case $K(a)+1$)
 \item{} $1$ to make the swap between $a[K(a)]$ and $a[L(a)]$
 \item{} $n-K(a)-1$ to reverse the list in the range of $K(a)+1,..,n-1$
 \end{itemize}
-The real cost to find the next permutation is then (at most) of $3*(n-K(a)-1)+1$ .
+The real cost to find the next permutation is then (at most) of $3*(n-K(a)-1)$ .
 
-\paragraph{}
 \paragraph{}
 Let the potential $\Phi(a)$ be the number of indices $k$ such that $a[k]>a[k+1]$
 \newline
 i.e $\Phi(a)=n-\#(I(a))$ .
 
 \paragraph{}
-When we find the next permutation, we don't change any element before $K(a)$. This part doesn't contribute to any change to the potential $\Phi(a)$. The only part that can contribute in a change of potential is the part beginning at $K(a)$. By swapping $a[K(a)]$ and $a[L(a)]$, we contribute at most in a change of $+2$ in the potential. Then by reversing the end of the list, we are sure that the potential decreases by at least $n-K(a)-2$.
+When we find the next permutation, we don't change any element before $K(a)$. This part doesn't contribute to any change to the potential $\Phi(a)$. The only part that can contribute in a change of potential is the part beginning at $K(a)$.
+\newline
+By swapping $a[K(a)]$ and $a[L(a)]$, we contribute at most in a change of $+2$ in the potential. Then by reversing the end of the list, we are sure that the potential decreases by at least $n-K(a)-2\ $ because every index in $K(a)+1,..,n-1$ was not in $I(a)$ before swapping $a[K(a)]\ $ and $a[L(a)]\ $.
 \paragraph{}
 Thus we have $\Delta\Phi(a)\leq{4-(n-K(a))}$ .
-
-\paragraph{}
-\paragraph{}
+\newline
 Therefore, we have $realCost+3*\Delta\Phi=O(1)$. The operation runs in amortized constant time.
