@@ -1,18 +1,19 @@
-We need a potential function that takes into account how far for having to double or halve the array we currently are. We denote by $n$ the current length of the array (which means that when an operation modifying the length of the array is performed, $n_{before} \neq n_{after}$. We have chosen the following potential function : $\Phi = 6 |\# (used\ slots) - \# (free\ slots)|$.
+\paragraph{1.}
+
+\paragraph{}
+We need a potential function that takes into account how far for having to double or halve the array we currently are. We denote by $n$ the current length of the array (which means that when an operation modifying the length of the array is performed, $n_{before} \neq n_{after}$. We have chosen the following potential function : $\Phi =  |\# (used\ slots) - \# (free\ slots)|$.
 
 This potential function garantees that the simple insert and delete operations without modifying the length of the array will still be performed in constant amortized time. Let's study what happens when we insert an element in an initially full array.
 
 $real cost + \Delta\Phi =$
 
-$ (n_{before} + n_{after}) +6(|\#_{after} (used slots)-n_{after}/2|-|\#_{before} (used slots)-n_{before}/2|)$
+$ n_{before}  +(|\#_{after} (used\ slots)-\#_{after} (free\ slots)|-|\#_{before} (used\ slots)-\#_{before} (free\ slots)|)$
 
 Let's use the notations : $n_{before} = N$, $n_{after} = 2N$. Then we have :
 
-$real cost + \Delta\Phi = 3N +6(1-(N-N/2))$
+$real cost + \Delta\Phi = N +(|(N+1)-(N-1)|-|N-0|)$
 
-$real cost + \Delta\Phi = 3N +6(1-N/2)$
-
-$real cost + \Delta\Phi = 6$
+$real cost + \Delta\Phi = 2$
 
 Therefore, inserting an element in a full array (i.e. doubling the size of the array and copying the elements) can be done in amortized constant time.
 
@@ -20,10 +21,19 @@ Let's now consider a deletion that brings the number of elements below the thres
 
 $real cost + \Delta\Phi =$
 
-$ (n_{after}/2 + n_{after}) +6(|\#_{after} (used slots)-n_{after}/2|-|\#_{before} (used slots)-n_{before}/2|)$
+$ n_{after}/2  +(|\#_{after} (used\ slots)-\#_{after} (free\ slots)|-|\#_{before} (used\ slots)-\#_{before} (free\ slots)|)$
 
-Let's use the notations (that differ from the previous ones) : $n_{before} = 2N$, $n_{after} = N$. Then we have :
 
-$real cost + \Delta\Phi = N/2+N +6(1-(N/2))$
+Let's use the notations : $n_{before} = N$, $n_{after} = N/2$. Then we have :
 
-$real cost + \Delta\Phi = 6 -3N/2$
+$real cost + \Delta\Phi = N/4+ (|(N/4-1)-(N/4+1)|-|N/4-3N/4|)$
+
+$real cost + \Delta\Phi \leqslant 2 $
+
+Thus, halving the array can be performed in amortized constant time.
+
+\paragraph{2.}
+
+\paragraph{}
+
+If we were doing so, we could have a sequence of insert and delete which causes the array length to be modified for each operation. Indeed, if we consider an almost full array (only one free slot) and the sequence  $(IIDD)+$, we will be doubling and halving the array every other operation (I : insert, D : delete, + in the sense of regular expression).
