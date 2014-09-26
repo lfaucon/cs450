@@ -1,4 +1,33 @@
 
 
 \paragraph{}
-This is a paragraph
+We consider permutations of length $n$ .
+
+For such permutation $a$, we define:
+\begin{itemize}
+\item{} the set $I(a)=\{k/ a[k]<a[k+1]\}$
+\item{} $K(a)$ such that $K(a)= max(I(a))$ if $I(a)$ is not empty, $K(a)=n$ otherwise
+\end{itemize}
+
+\paragraph{}
+The cost of finding the next permutation is then:
+\begin{itemize}
+\item{} $n-K(a)-1$ to find $K(a)$
+\item{} $(n-K(a)-1$ to find the index $l$
+\item{} $1$ to make the swap between $a[K(a)]$ and $a[l]$
+\item{} $n-K(a)-1$ to reverse the list in the range of $K(a),..,n$
+\end{itemize}
+The real cost to find the next permutation is then of $3*(n-K(a)+1)+1$ .
+
+\paragraph{}
+\paragraph{}
+Let the potential $\phi(a)$ be the number of indices $k$ such that $a[k]>a[k+1]$ i.e $\phi(a)=n-Card(I(a))$ .
+
+\paragraph{}
+When we find the next permutation, we don't change any element before $K(a)$. This part doesn't contribute to any change to the potential $\phi(a)$. The only part that can contribute in a change of potential is the part beginning at $K(a)$. By swapping $a[K(a)]$ and $a[l]$, we don't change the potential. Then by reversing the end of the list, we are sure that the potential decreases by at least $n-K(a)$.
+\paragraph{}
+Thus we have $\Delta\phi(a)\leq{-(n-K(a))}$ .
+
+\paragraph{}
+\paragraph{}
+Therefore, we have $realCost+3*\Delta\phi\leq{4}$. The operation runs in amortized constant time.
