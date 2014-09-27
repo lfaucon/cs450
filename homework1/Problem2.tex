@@ -1,7 +1,7 @@
 \paragraph{1.}
 
 \paragraph{}
-We need a potential function that takes into account how far for having to double or halve the array we currently are. We denote by $n$ the current length of the array (which means that when an operation modifying the length of the array is performed, $n_{before} \neq n_{after}$. We have chosen the following potential function : $\Phi =  |\# (used\ slots) - \# (free\ slots)|$.
+We need a potential function that takes into account how far for having to double or halve the array we currently are. We denote by $n$ the current length of the array (which means that when an operation modifying the length of the array is performed, $n_{before} \neq n_{after}$). We have chosen the following potential function : $\Phi =  |\# (used\ slots) - \# (free\ slots)|$.
 
 This potential function garantees that the simple insert and delete operations without modifying the length of the array will still be performed in constant amortized time. Let's study what happens when we insert an element in an initially full array.
 

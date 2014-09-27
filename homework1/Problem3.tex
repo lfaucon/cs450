@@ -8,7 +8,7 @@ Let's consider this problem in a high and theoritical point of view. We know tha
 The main idea is that if we begin with an initially empty tree, there will always be more insert than delete-min. Therefore we can design a potential function that makes the amortized cost of insert a little bit higher (but in the same asymptotic class) and makes the amortized cost of delete-min constant.
 \paragraph{}
 Let's call $n$ the total number of nodes in the tree. We are now able to define our potential function $\Phi(n)$ :
-for $ n > 0, \Phi(n) = \beta \times \sum_{\substack{0<k\leqslant n \\}}log(k)   $ ; $ \Phi(0) = 0 $ (by convention)
+for $ n > 0, \Phi(n) = \beta \times \sum_{\substack{0<k\leqslant n \\}}log(k)   $ ; $ \Phi(0) = 0 $ (by convention).
 
 \paragraph{}
 Let's compute the sum of the real cost and the potential variation of the two operations insert and delete-min.
