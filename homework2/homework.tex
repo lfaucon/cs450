@@ -1,0 +1,128 @@
+\documentclass[a4paper,11pt]{article}
+%
+% HOW TO USE THIS TEMPLATE:
+%
+% IN THE TWO INDICATED PLACES BELOW,
+%   ENTER YOUR NAMES AND THE NUMBER OF THE HOMEWORK
+%
+% FOR EACH PROBLEM IN THE SET, WRITE YOUR SOLUTION IN A FILE
+%   NAMED "Problem1.tex", "Problem2.tex", etc.
+%   THESE SOLUTIONS FILES HAVE NO PREAMBLE AND
+%   NO \begin{document} \end{document}
+%   (THEY JUST GET INLINED WHEN RUNNING LaTeX)
+%
+% PLACE THESE SOLUTIONS FILES AND THE TEMPLATE IN THE SAME DIRECTORY
+%
+% RUN LaTeX
+%
+% IF YOU NEED TO ADD PACKAGES (E.G., FOR HANDLING FIGURES, OR
+%   FOR RUNNING PDFLaTeX), PUT IN A NEW \usepackage LINE AS
+%   SHOWN BELOW
+
+%
+%%%% REPLACE Doe, Smith, and Wilson WITH YOUR LAST NAMES
+%%%% NOTE: IF YOUR LAST NAME HAS ACCENTS, SOME LaTeX COMMANDS ARE:
+%%%%       for diaeresis/umlaut ", as in German, use \"a, \"u, \"o, etc.
+%%%%       for grave accent `, use \`e, \`a, \`u
+%%%%       for acute accent ', use \'a, \'e, \'u
+%%%%       for tilde ~, use \tilde{a}, \tilde{o}
+%%%%       for caret ^, use \hat{e}, \hat{o}
+%%%%	   if you need an accent on an i, say an umlaut, use \"\i{}
+%%%%		the \i{} is an i without its dot; e.g., na\"\i{}ve
+%%%%	   these all work well with lower-case letters,
+%%%%	        but only so-so with upper-case letters
+%%%%
+  \def\myname{L. Anadon, L. Faucon and D. Hilloulin}
+
+%%%% REPLACE xxx WITH CORRECT HOMEWORK NUMBER
+%  \def\mynumber{xxx}
+  \def\mynumber{1}
+
+  \newcounter{problems}
+%%%% REPLACE yyy WITH CORRECT NUMBER OF PROBLEMS IN HOMEWORK
+%%%% yyy SHOULD BE A NUMBER BETWEEN 4 AND 7
+%  \setcounter{problems}{yyy}
+  \setcounter{problems}{3}
+
+%%%% IF ADDITIONAL PACKAGES ARE NEEDED, UNCOMMENT LINE BELOW
+%%%% AND ENTER THE PACKAGE NAMES
+%  \usepackage{additional_package_1,additional_package_2}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+
+
+% DO NOT MODIFY THE REST OF THE FILE
+%%%% Recursive functions
+  \def\tableformat#1{
+    |c  
+    \ifnum#1<\theproblems
+      \tableformat{\number\numexpr#1+1}
+    \fi
+  }
+
+  \def\tablecontent#1{
+    \ifnum#1<\theproblems
+      Prob.~#1 &
+      \tablecontent{\number\numexpr#1+1}
+    \fi 
+    \ifnum#1=\theproblems
+      Prob.~#1
+    \fi
+  }
+
+  \def\tablevoid#1{
+    \ifnum#1<\theproblems
+      &
+      \tablevoid{\number\numexpr#1+1}
+    \fi
+  }
+
+  \def\problemscontent#1{
+    \ifnum#1>\theproblems\else
+      \ifnum#1>1\newpage\fi
+      \addtocounter{problem}{1}
+      \begin{flushleft}
+        \large\sf Problem \theproblem .
+      \end{flushleft}
+      \input{Problem#1.tex}
+      \problemscontent{\number\numexpr#1+1}
+    \fi
+  }
+
+%%%%%
+  \usepackage{times,amsmath,pslatex,graphicx,ifthen}
+  \newcounter{problem}
+  \setcounter{problem}{0}
+  \makeatletter
+  \def\ps@headings{%
+    \let\@mkboth\markboth
+    \def\@evenfoot{\hfil\large\sf Homework \mynumber, Problem \theproblem\hfil}
+    \def\@oddfoot{\@evenfoot}
+    \def\@evenhead{\large\sc\myname\hfil\it\today\hfil\sf P.~\thepage}
+    \def\@oddhead{\@evenhead}}
+  \makeatother
+  \pagestyle{headings}
+  \advance\textwidth by16mm
+  \advance\oddsidemargin by-8mm
+  \advance\textheight by10mm
+%%%%%
+
+\begin{document}
+
+\begin{center}
+  \LARGE\sf
+  \begin{tabular}{|\tableformat{1}||}
+    \hline\hline
+    \tablecontent{1} \\
+    \hline
+    \tablevoid{1}\\
+    \hline\hline
+  \end{tabular}
+\end{center}
+
+\bigskip\bigskip
+
+\problemscontent{1}
+
+\end{document}
