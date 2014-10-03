@@ -21,4 +21,18 @@ We denote respectively by $OPT(T)$ and $ONL(T)$ the price paid in the optimal st
 \paragraph{}
 If $T \leqslant N-1$ then we have $\frac{ONL(T)}{OPT(T)} = 1$
 
-If $T \leqslant N-1$ then we have $\frac{ONL(T)}{OPT(T)} = 1$
+If $N\leqslant T\leqslant3N-1$ then we have $\frac{ONL(T)}{OPT(T)} \leqslant \frac{2N-1}{N} < 2(1-1/2N)$
+
+If $T \geqslant 3N$ then we have $\frac{ONL(T)}{OPT(T)} \leqslant \frac{4N-1}{2N} = 2(1-1/2N)$
+
+Therefore, our strategy competitve ratio is $2(1-1/2N)$. 
+\paragraph{}
+We now need to prove that all other possible strategies have higher competitive ratio; actually we are going to prove that all these strategies have a competitive ratio of at least 2. First, we can note that buying a pair of skis before time N-1 (let's say at time $K$) is going to lead to a competitive ratio higher or equal than $\frac{N+K}{K+1}$. This function of K is decreasing so it is higher to $\frac{2N-2}{N-1}=2$.
+
+On the contrary, if we choose to rent our skis for more than N-1 times, we have to distinguish two cases :
+\begin{itemize}
+	\item at some point along the way, we buy the cheap skis. It is obvious that if T becomes very big ($10N$ for instance), we will have to buy the expensive skis too. Then our competitive ratio is a least $\frac{N+N+2N}{2N}=2$.
+	\item we never buy the cheap skis but directly the expensive ones. Now we need to consider when we are buying these skis. If it happens before T = 2N, when we buy them we have a competitive ratio higher than 2. If it happens at T=2N or after, at time 4N our ratio is going to be higher than 2.
+\end{itemize}
+
+We have just etasblished that the number of rentings needs to be exactly N-1. Then at time N we buy the cheap skis. The last question that needs to be answered is : what happens at T=3N-1 when my cheap skis are just broken? At this point we need to buy the expensive skis because if we don't when we will buy them in the future (and we will have to) our competitive ratio is going to be more than 2.
