@@ -1,0 +1,24 @@
+We can first define what the optimal strategy knowing $T$ is :
+\begin{itemize}
+	\item if $T<N$, then we rent skis N times,
+	\item if $N\leqslant T \leqslant 2N$, then we buy cheap skis,
+	\item if $2N<T<3N$, we buy cheap skis and then rent skis for $T-2N$ times,
+	\item if $T\geqslant 3N$, we buy the expensive skis which will last forever.
+\end{itemize}
+
+\paragraph{}
+We are going to prove that we can have a competitve ratio slightly better than two ( $2(1-1/2N)$ ) and that there is no online strategy with a better competitive ratio.
+First, let's describe our online strategy : 
+\begin{itemize}
+	\item we begin by renting skis N-1 times,
+	\item then we buy cheap skis,
+	\item and finally if $T>3N-1$ we buy the expensive ones.
+\end{itemize}
+
+
+We denote respectively by $OPT(T)$ and $ONL(T)$ the price paid in the optimal strategy and our online strategy.
+
+\paragraph{}
+If $T \leqslant N-1$ then we have $\frac{ONL(T)}{OPT(T)} = 1$
+
+If $T \leqslant N-1$ then we have $\frac{ONL(T)}{OPT(T)} = 1$
