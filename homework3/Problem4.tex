@@ -1,0 +1,27 @@
+\paragraph{}
+Let $p_{ik}$ be the probability that the bin contains $i$ white balls when it contains $k$ balls. We want to show recursively the property : 
+\[ P(k) : \forall i \in [1,k-1], p_{ik} = 1/(k-1) \]
+
+
+\paragraph{Initialization} 
+\paragraph{}
+$P(2)$ is trivial.
+\paragraph{}
+$P(3)$ states that there is $1/2$ chances that we have one white ball and $1/2$ chances that we have two white balls at the state where we have three balls. It is exactly the case because we started with a white and a black and we chose uniformly at random the one we wanted to duplicate.
+
+
+\paragraph{Recursion}
+\paragraph{}
+Let $k$ be any integer smaller than $n$ and suppose that $P(k)$ is true. We are going to show that this implies $P(k+1)$ also true.
+\paragraph{}
+For $p_{1(k+1)}$, the only way we end up with one white ball when we have $(k+1)$ balls is if we already had only one white ball when were at $k$ balls and we chose to duplicate a black one. This happens with probability $p_{1(k+1)} = p_{1k} \times (k-1) / k = 1/k$.
+\paragraph{}
+For $p_{i(k+1)}$ with $i>1$,  
+
+
+
+
+
+\paragraph{}This concludes the demonstration and shows that the probability of obtaining $i$ white balls at the end is $1/(n-1)$
+
+
