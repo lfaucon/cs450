@@ -1,0 +1,25 @@
+\paragraph{}
+Let's call our $2^{nd}$ access-MTF MTF2 and compute the competitive ratio with the static algorithm. Let $\phi_x$ be the number of items that precede $x$ in the MTF2 list, but follow it in the optimal static list (the same as in class), $b_x$ the bit associated to $x$ and $j_x$ the position of $x$ in the optimal static list. For the potential function, we want to count the contribution of an item $x$ if his associated bit is $0$ and add  $1$. Our potential thus becomes :
+\[ \phi = \sum{} 2*\phi_x + b_x \times (j_x - \phi_x) \].
+
+\paragraph{}We need to compute the amortized time for the two cases.
+
+\paragraph{First access :} Nothing moves but the bit of $x$ that goes from 0 to 1.
+\paragraph{}
+\begin{tabular}{rcl}
+$ real\ cost + \Delta\phi $&$ = $&$ i + (j - \phi_x) $\\
+$ real\ cost + \Delta\phi $&$ \leq $&$ 2 \times j $\\
+\end{tabular}
+
+\paragraph{Second access :} Variations in potential come from three sources : - $\phi_x$ is reduced to 0 - $b_x$ goes from 1 to 0 thus removing $j_x$ to the potential - the $(i-\phi_x)$ elements in front of $x$ move each inducing a possible increase in the potential of 2.
+\paragraph{}
+\begin{tabular}{rcl}
+$ real\ cost + \Delta\phi $&$ \leq $&$ i - (j - \phi_x) - 2 \times \phi_x + 2 \times (i - \phi_x) $\\
+$ real\ cost + \Delta\phi $&$ \leq $&$ 3 \times (i - \phi_x) - j $\\
+$ real\ cost + \Delta\phi $&$ \leq $&$ 2 \times j $\\
+\end{tabular}
+
+\paragraph{}
+We can deduce that the competitive ratio of MTF2 with the optimal static list is 2.
+
+\paragraph{}For MTFk let $n_x$ be the number of times $x$ has been accessed since his last move to the front. With the potential $\phi = \sum{} k*\phi_x + n_x \times (j_x - \phi_x)$ we can show that MTFk has the same competitive ratio as MTF2.
