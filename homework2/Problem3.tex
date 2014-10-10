@@ -1,0 +1,83 @@
+\paragraph{1.}
+Let use the strategy where at any step $n$ ($n$ starts at $0$) the position of the dog is given by $x_n = (-2)^n$ (except if the dog has found the bone, in this case the dog stops at the bone).
+\newline
+\newline
+The total distance $t_n$ walked  by the dog since the beginning of the search until the step $n$ is given by the relation
+\newline
+$t_n = \begin{cases}
+1 & \mbox{if } n \mbox{ is 0}
+\\ t_{n-1}+2^{n-1}+2^{n}=t_{n-1}+3*2^{n-1} & \mbox{if } n>0 \mbox{, bone not found at step n}
+\\ t_{n-1}+2^{n-1}+|x| & \mbox{if the bone was found at step } n
+\end{cases}$
+\newline
+\newline
+Thus, we have
+\newline
+$t_n=\begin{cases}
+3*(2^n-1)+1 & \mbox{for every } n \mbox{ before the dog finds the bone}
+\\ 3*(2^{n-1}-1) + 2^{n-1} + |x| & \mbox{at the step where the dog finds the bone}
+\end{cases}$
+\newline
+(Even if the bone is found at the step $0$).
+\subparagraph{}
+If $x > 0$ or $x < 0$, the dog finds the bone at the step $N$ such that $2^{N-2}<|x|\leq 2^N$ (the dog didn't find the bone at the second to last step).
+\newline
+Then in this case the total walked distance is:
+\newline
+$T=t_N=3*(2^{N-1}-1)+1+2^{N-1}+|x|<3*(2*|x|-1) +1 + 2*|x|+|x|=9*|x|-2$
+\subparagraph{}
+Thus, the total walked distance is bounded by $9*|x|-2$ . Our algorithm is competitive with the best algorithm with a ratio of $9$.
+
+\paragraph{2.}
+This time we have $m>2$ roads crossing at the same point. We index the roads by $0..m-1$. We note by $q(n,m)$ the quotient of $n$ divided by $m$, and $r(n,m)$ the remainder of the division of $n$ by $m$.
+\subparagraph{}
+Our dog will search the bone by making circles, going from road $r$ to road $r+1[m]$ at each step. We are going to use quite the same strategy as before: we will double the distance each time the dog passes by the road $0$.
+Let $X_n=(r_n,x_n)$ be the tuple containing the index of the road on which the dog is and his absciss on this road.
+\newline
+The dog will change of road between each step, and double the absciss if he is on the road $0$: so we have $r_n=r(n,m)$ and $x_n=2^{q(n,m)}$.
+\subparagraph{}
+Let $t_n$ be the distance that the dog has walked since the beginning of the search. We have the relation:
+$t_n = \begin{cases}
+1 & \mbox{if } n \mbox{ is 0}
+\\ t_{n-1}+2^{q(n-1,m)}+2^{q(n,m)} & \mbox{if } n>0 \mbox{, bone not found at step n}
+\\ t_{n-1}+2^{q(n-1,m)}+x & \mbox{if the bone was found at step } n
+\end{cases}$
+\newline
+\subparagraph{}
+At the step $n$, the dog has made $q(n,m)$ times a complete lap.
+\begin{itemize}
+\item To get at the origin (absciss $0$ on the road $0$) after the $q(n,m)$ laps, the dog has walked the distance:
+\newline
+$\sum\limits_{l=0}^{q(n,m)-1}{2*m*2^l} = 2m*(2^{q(n,m)}-1)$
+\newline
+(because there are $m$ roads, and the dog must walk back and forth on the roads).
+\newline
+\item Then, to be on the correct road, at the correct absciss, the dog must walk
+\newline
+$\begin{cases}
+(2*r(n,m)+1)*2^{q(n,m)} & \mbox{(if he hasn't found the bone at the step } n
+\\ 2*r(n,m)*2^{q(n,m)}+x  & \mbox{if he has found the bone at the step } n
+\end{cases}$
+\end{itemize}
+So we have:
+\newline
+$t_n = \begin{cases}
+2m*(2^{q(n,m)}-1) + (2*r(n,m)+1)*2^{q(n,m)} & \mbox{for every } n \mbox{ before the dog finds the bone}
+\\ 2m*(2^{q(n,m)}-1) + 2*r(n,m)*2^{q(n,m)}+ x & \mbox{at the step where the dog finds the bone}
+\end{cases}$
+\subparagraph{}
+Let suppose that the bone is on the road $r$, then the dog finds it at a step $N=m*k+r$ such that $2^{k-1}<x\leq 2^k$.
+\newline
+The distance that the dog has walked to find the bone is:
+\newline
+$T=t_N= 2m*(2^k-1) + 2r*2^{k}+ x<4mx - 2m +4rx +x=(4(m+r)+1)x-2m$
+\newline
+Thus, we always have $T=t_N<(8m-3)x-2m=O(mx)$.
+\newline
+\newline
+If we use the fact that $x\leq 2^k$, we deduce that:
+\newline
+$T=t_N= 2m*(2^k-1) + 2r*2^{k}+ x \geq 2m(x-1)+2rx +x = (2(m+r)+1)x -2m \geq 2m(x-1)$.
+So, $T=\Omega(mx)$
+\subparagraph{}
+As a conclusion, we have a competitive ratio of $\Theta(mx)$.
