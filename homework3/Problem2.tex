@@ -1,0 +1,87 @@
+\subparagraph{}
+We consider a graph of $n$ nodes, for which a min-cut is of size $c$. We call $k$ the number of steps before forking the instances, and $m$ the number of different instances after the fork.
+\newline
+We look at $k$ and $m$ such that $k + m*(n-2-k) = 2*(n-2)$, meaning that the number of merging operations is equal to the number of operations with two instances of the traditional algorithm seen during the course.
+\newline
+At each step $i$, our algorithm (for each instance) pick an edge and merge the two vertices associated to the edge, creating a new graph with one less vertex.
+\subparagraph{}
+Because there may be numerous min-cuts, we will compare this algorithm with a chosen min-cut to make the following analysis.
+We will find an upper bound of the probability that no-resulting cut of this algorithm is like the chosen min-cut. (This will provide us an upper bound of the probability that we don't have a correct min-cut at all).
+
+\subparagraph{}
+We call the probability $p$ that every resulting cut of the algorithm is not like the chosen min-cut. Then we have by definition of $p$:
+\newline
+\begin{tabular}{rl}
+$p = $ & $Pr(every\: cut\: different\: of\: the\: chosen\: cut | cut\: correct\: at\: step\ k)Pr(cut\: correct\: at\: step\: k)$ \\
+& $+ Pr(every\: cut\: different\: of\: the\: chosen\: cut | cut\: not\: good\: at\: step\: k)Pr(cut\: incorrect\: at\: step\: k)$\\
+\end{tabular}
+
+\subparagraph{}
+We now will bound each term.
+
+\begin{itemize}
+
+\item We call $q$ the term $Pr(every\: cut\: different\: of\: the\: chosen\: cut | cut\: correct\: at\: step\ k)$.
+\newline
+We have:
+\newline
+$q=Pr(one\: cut\: different\: of\: the\: chosen\: cut| cut\: correct\: at\: step\ k)^m$
+\newline
+Because the evolution of each instance after the fork can be fairly assumed independent.
+\newline
+\newline
+We call $q'$ the term $Pr(one\: cut\: different\: of\: the\: chosen\: cut| cut\: correct\: at\: step\ k)$.
+\newline
+We can thus bound $q'$ with the same reasoning as seen during the class, which provides us the bound:
+\newline
+$q' \leq 1 - \prod_{i=k}^{n-3}{1 - \frac{2}{n-i}} = 1 -  \prod_{i=k}^{n-3}{\frac{n-i-2}{n-i}} = 1 -  \frac{(n-2)!(n-k)!}{(n-k-2)!n!}$
+\newline
+Thus,
+$q' \leq 1 - \frac{2}{(n-k)(n-k-1)}$
+\newline
+\newline
+Which permits us to bound $q$ with:
+\newline
+$q \leq (1 - \frac{2}{(n-k)(n-k-1)})^m$
+
+\item We call $r$ the term $Pr(cut\: correct\: at\: step\: k)$.
+\newline
+This term is a little bit difficult to bound efficiently.
+\newline
+Assuming that a graph of $m$ node is simple, we can be sure that there are no more than $\frac{m(m-1)}{2}$ edges in the graph. We will assume that the graph for which we are trying to find a min-cut is simple, so that at any step $i$ of the algorithm, the number of edges is at most $\frac{(n-i)(n-i-1)}{2}$.
+\newline
+Thus, at any step $i$ of the algorithm, the probability to pick an edge from the chosen min-cut is at least $\frac{c}{\frac{(n-i)(n-i-1)}{2}}$.
+\newline
+Hence, the probability to NOT pick an edge of the min-cut is at most $1-\frac{2c}{(n-i)(n-i-1)}$.
+\newline
+Which gives us:
+\newline
+$r \leq \prod_{i=0}^{k-1}{(1-\frac{2c}{(n-i)(n-i-1)})}$.
+\newline
+
+\item We call $t$ the term $Pr(every\: cut\: different\: of\: the\: chosen\: cut | cut\: not\: good\: at\: step\: k)$.
+\newline
+This term is equal to $1$ because of the condition implying the tested event.
+\item We call $u$ the term $Pr(cut\: incorrect\: at\: step\: k)$.
+\newline
+We use the same argument as in the lectures notes to bound this term: because the min-cut is made of $c$ edges, we know that every vertex has a degree of at least $c$, hence the number of edges is at least $c(n-i)/2$ at a step $i$ of the algorithm.
+\newline
+Therefore, at any step $i$ of the algorithm, the probability to pick an edge from the chosen min-cut is at most $\frac{c}{\frac{c(n-i)}{2}}=\frac{2}{n-i}$.
+\newline
+Hence, at any step $i$ of the algorithm, the probability to NOT pick an edge from the chosen min-cut is at least $1-\frac{2}{(n-i)}$.
+\newline
+So that the probability that tha cut is correct at the stek $k$ is at least:
+\newline
+$\prod_{i=0}^{k-1}{(1-\frac{2}{(n-i)})} = \prod_{i=0}^{k-1}{\frac{n-i-2}{n-i}} = \frac{2}{(n-k)(n-k-1)}$
+\newline
+And the probability that a cut is incorrect at step $k$ is at most:
+\newline
+$u \leq 1 -  \frac{2}{(n-k)(n-k-1)}$.
+\end{itemize}
+\subparagraph{}
+In the end, we have bounded $p$ by:
+\newline
+$p \leq (1 - \frac{2}{(n-k)(n-k-1)})^m \prod_{i=0}^{k-1}{(1-\frac{2c}{(n-i)(n-i-1)})} + 1 -  \frac{2}{(n-k)(n-k-1)}$
+\subparagraph{}
+This bound is really hard to make as little as possible because of the presence in the formula of the number of edges in the cut $c$, and the fact that when the term $q$ disminishes, the term $r$ grows...
+\newline
