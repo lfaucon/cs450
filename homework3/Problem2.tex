@@ -83,5 +83,8 @@ In the end, we have bounded $p$ by:
 \newline
 $p \leq (1 - \frac{2}{(n-k)(n-k-1)})^m \prod_{i=0}^{k-1}{(1-\frac{2c}{(n-i)(n-i-1)})} + 1 -  \frac{2}{(n-k)(n-k-1)}$
 \subparagraph{}
-This bound is really hard to make as little as possible because of the presence in the formula of the number of edges in the cut $c$, and the fact that when the term $q$ disminishes, the term $r$ grows...
+This bound is really hard to make as little as possible because of the presence in the formula of the number of edges in the cut $c$, and the fact that when the term $q$ disminishes, the term $r$ grows and vice versa...
 \newline
+Hence, there is no way to find optimal numbers $k$ and $m$ without knowing $c$. If $c$ is known, such numbers $k$ and $m$ can be found trying to minimize numerically the bound we have explicited.
+\newline
+If $c$ is unknown, we can for example take $k \approx \frac{n}{2}$ and $m = 3$ by default. This choice is made so that the total number of merging operations is $2(n-2)$.
