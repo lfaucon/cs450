@@ -1,0 +1,15 @@
+\paragraph{}
+We consider without loss of generality that our array contains the $n$ numbers from $1$ to $n$. Let $X_{ij}$ be the random variable that takes value 1 if we compared $i$ and $j$ during our quick sort and 0 if not. Two elements can't be compared more than once because, when there is a comparison that means one of them has been chosen as the pivot and will be at his right place for the remaining operations of the sort algorithm. Since we do $O(1)$ operation after each comparison, the expected complexity will be : $O(E[\sum_{i<j} X_{ij}])$
+
+\paragraph{}
+We compare $i$ and $j$ ($j>i$) if and only if no element between them is taken as pivot before them. Since we choose our pivots at random, we get $P(X_{ij}=1) = 2 / (j - i + 1)$. Then we can compute :
+\paragraph{}
+\begin{tabular}{rl}
+$E[\sum_{i<j} X_{ij}] = $ & $ \sum_{i<j} E[X_{ij}] $ \\
+$E[\sum_{i<j} X_{ij}] = $ & $ 2 \times \sum_{i<j} 1 / (j - i + 1) $ \\
+$E[\sum_{i<j} X_{ij}] = $ & $ 2 \times \sum_{i=1}^{n} \sum_{k=1}^{n-i+1} 1 / k $ \\
+$E[\sum_{i<j} X_{ij}] = $ & $ 2 \times \sum_{i=1}^{n} \sum_{k=1}^{i} 1 / k $ \\
+\end{tabular}
+
+\paragraph{}
+However $\sum_{k=1}^{i} 1 / k = O(ln(i))$, so we can conclude that the overall average complexity of quicksort is $O(n \times ln(n))$.
