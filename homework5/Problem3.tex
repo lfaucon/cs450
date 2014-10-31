@@ -1,0 +1,14 @@
+If $k$ is the number of edges to remove from a graph to turn it into a tree, it means that the graph includes exactly $k$ cycles: if there was more than $k$ cycles, we would need to remove more edges to get a tree, if there was less than $k$ cycles we would need to remove less edges.
+
+\subparagraph{}
+Thus to get a minimum spanning tree, our algorithm needs to remove the $k$ more expensive edges (no more or we will don't have a tree, no less or we will still have a graph) from the cycles. Our algorithm makes $k$ rounds during which it will detect a cycle, and remove the most expensive edge from it.
+
+\subparagraph{}
+Thus the important part is to detect one cycle in linear time, and remove the most expensive edge from it.
+By doing a Depth First Search from one of the edge in the graph, we can detect the cycle by: check if the other vertex (not the one from which we are coming from) is already marked, if yes, mark both vertices as in the cycle, continue recursion by marking the vertices as visited and following every edge.
+This DFS runs in linear time with respect to the number of edges in the graph.
+Then, after finding an edge in the cycle, we start another DFS to find the most expensive edge in the cycle not yet marked for deletion, which is still a linear time operation.
+
+\subparagraph{}
+We have thus an algorithm to find the minimum spanning tree of a graph for which we know there are $k$ cycles, which is running in $\Theta(k|E|)$ where $|E|$ is the number of edges in the graph.
+
