@@ -1,1 +1,11 @@
-Let's use here the maxflow-mincut theorem to be able to reasonne on a minimal cut instead of a flow. Let's consider we have a minimal cut for our problem, this cut is of value $F$. We denote for now on our cut by $\mathcal{C}$ and its cardinality (i.e. the number of edges in the cut by $\mathcal{C}$
+\paragraph{}
+Let's use here the maxflow-mincut theorem to be able to reasonne on a minimal cut instead of a flow. Let's consider we have a minimal cut for our problem, this cut is of value $F$. We denote for now on our cut by $\mathcal{C}$ and its cardinality (i.e. the number of edges in the cut) by $|\mathcal{C}|$.
+
+\paragraph{}
+If the capacity of every edge is increased by exactly $1$ unit, the new mincut $\mathcal{C}'$ , which is not necessarily the same set of edges, will have a new value $F + \Delta_{1}$. If our new mincut contained exactly the same set of edges as before, we would have $\Delta_{1} = |\mathcal{C}|$. Therefore, $\Delta_{1} \leqslant |\mathcal{C}|$.
+
+\paragraph{}
+If the capacity of every edge is decreased by exactly $1$ unit, the new mincut $\mathcal{C}''$, which is not necessarily the same set of edges, will have a new value $F - \Delta_{2}$. If our new mincut contained exactly the same set of edges as before, we would have $\Delta_{2} = |\mathcal{C}|$. Therefore, $\Delta_{2} \geqslant |\mathcal{C}|$.
+
+\paragraph{}
+Thus, $\Delta_{1} \leqslant |\mathcal{C}| \leqslant \Delta_{2}$.
