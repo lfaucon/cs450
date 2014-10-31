@@ -1,0 +1,33 @@
+\subparagraph{}
+The greedy algorithm described is not perfect because it will perform very badly on numbers of the form $\sum\limits_{i=0}^{k-1} 2^i = 2^k-1$. For such numbers, the algorithm will make $k-1$ multiplication by $2$ and then will make incrementations. But there will be $(2^k-1)-2^{k-1}=2^{k-1}-1$ incrementations!
+
+With the following greedy algorithm, that we will prove to be optimal, we will only do $k-1$ multiplcations by two and $k$ incrementations for the same number.
+
+\subparagraph{}
+Our algorithm that return for the number $n$ the optimal sequence of Doubling/Incrementation operations in a list to get $n$ (a "D" for a doubling operation, "I" for an increment operation) is the following:
+\begin{verbatim}
+copy n in m.
+initialize the list l to empty.
+
+While m is non zero do
+    if m % 2 is zero then
+        put a "I" at the beginning of l.
+    end if
+    put m/2 in m.
+    if m is non zero then
+        put a "D" at the beginning of l.
+    end if
+end while
+return the list l.
+\end{verbatim}
+When reading the list from the beginning to the right, we have the optimal sequence of Doubling/Incrementation operations to build the number $n$ from $0$.
+We can prove the correctness of our algorithm by induction because the set of positive integers can be defined by induction with: $0$ is a positive integer, if $m$ is a positive integer, $2m$ and $2m+1$ are too. Thus, if we prove that our algorithm is correct for $0$ (it returns the empty list, which is correct) and for numbers written as $2m+1$ and $2m$ it will be correct:
+\begin{itemize}
+\item If we have the correct list $l'$ of operations to build the number $m$ with Doubling/incrementation operations, the returned list for $2m$ is $l'$ with a "D" written in the last position (first step of the loop), and thus is correct.
+\item If we have the correct list $l'$ of operations to build the number $m$ with Doubling/incrementation operations, the returned list for $2m+1$ is $l'$ with a "D","I" written in the last positions (first step of the loop), and thus is correct.
+\end{itemize}
+
+\subparagraph{}
+If we have a number $q$ of 1s in the binary representation of the number $n$, any correct algorithm needs at least $q$ incrementations (one incrementation adds at most one 1 in the binary representation).
+If our number $n$ has it most significant bit in binary repsentation at the position $k$ (starting from $k=0$), every correct algorithm needs at least $k$ doubling operations.
+And our algorithm exactyl do $q$ incrementations and $k$ doubling, thus it is optimal.
