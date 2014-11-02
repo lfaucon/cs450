@@ -1,1 +1,15 @@
+\paragraph{}
+We assume we are given a maximum matching for connected bipartite graph of $2n+1$ vertices. Let's consider the component with the most vertices. In this component, there exists a vertex that is not part of the matching, call it $v$. Pick a edge from $v$ : $(u,v)$. We know that $u$ is part of the matching (if not the matching is not maximal because we could add $(u,v)$). We replace in the matching the edge from $u$ by $(u,v)$ : we have created another maximum matching.
 
+Therefore this graph does not have a \textbf{unique} maximum matching. 
+
+
+\paragraph{}
+We are going to prove by induction that the maximum number of edges, a connected bipartite graph on $2n$ vertices, with a unique maximum matching, can have is : $\sum_{k=1}^n k$.
+
+It's trivial for $n =1$.
+
+Considering it is true until $n$, let's prove it for $n+1$. Let's consider the graph of $2n$ vertices with a unique and given matching. We add a vertex in each component. We can add $n+1$ edges for one of this two vertices to all the vertices in the other component. If we add more than $n+1$ edges we won't have a unique matching anymore.
+
+
+Thus the maximum number of edges is $\sum_{k=1}^n k = \frac{n(n+1)}{2}$.
