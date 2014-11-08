@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.9.18)  8 NOV 2014 18:20
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.9.18)  8 NOV 2014 20:00
 entering extended mode
 **homework.tex
 ("C:\Users\louis\Documents\Cours\EPFL\CS450 AA\cs450\homework6\homework.tex"
@@ -269,21 +269,27 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 File: Diagramme1.png Graphic file (type png)
  <use Diagramme1.png>
 Package pdftex.def Info: Diagramme1.png used on input line 6.
-(pdftex.def)             Requested size: 284.52756pt x 165.32146pt.
+(pdftex.def)             Requested size: 227.62204pt x 132.25798pt.
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/pzccm/m/n' tried instead on input line 15.
  [1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
 
  <C:/Users/louis/Documents/Cours/EPFL/CS450 AA/cs450/homework6/Diagramme1.png>]) [2]
-("C:\Users\louis\Documents\Cours\EPFL\CS450 AA\cs450\homework6\Problem2.tex") [3]
-("C:\Users\louis\Documents\Cours\EPFL\CS450 AA\cs450\homework6\Problem3.tex") [4]
-("C:\Users\louis\Documents\Cours\EPFL\CS450 AA\cs450\homework6\Problem4.tex") [5]
+("C:\Users\louis\Documents\Cours\EPFL\CS450 AA\cs450\homework6\Problem2.tex"
+<Diagramme2.png, id=16, 317.42117pt x 325.92352pt>
+File: Diagramme2.png Graphic file (type png)
+ <use Diagramme2.png>
+Package pdftex.def Info: Diagramme2.png used on input line 19.
+(pdftex.def)             Requested size: 170.71652pt x 175.29485pt.
+) [3 <C:/Users/louis/Documents/Cours/EPFL/CS450 AA/cs450/homework6/Diagramme2.png>] ("C:\Users\louis\Documents\Cours\EPF
+L\CS450 AA\cs450\homework6\Problem3.tex")
+[4] ("C:\Users\louis\Documents\Cours\EPFL\CS450 AA\cs450\homework6\Problem4.tex") [5]
 ("C:\Users\louis\Documents\Cours\EPFL\CS450 AA\cs450\homework6\homework.aux") ) 
 Here is how much of TeX's memory you used:
- 2448 strings out of 493921
- 31948 string characters out of 3144876
- 81864 words of memory out of 3000000
- 5687 multiletter control sequences out of 15000+200000
+ 2454 strings out of 493921
+ 32053 string characters out of 3144876
+ 81872 words of memory out of 3000000
+ 5692 multiletter control sequences out of 15000+200000
  40737 words of font info for 92 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  27i,6n,26p,437b,226s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -293,9 +299,9 @@ enc/dvips/fontname/8r.enc}<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/
 s/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Program Files (x86)/MiKTeX 2.
 9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files
  (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on homework.pdf (5 pages, 72227 bytes).
+Output written on homework.pdf (5 pages, 85843 bytes).
 PDF statistics:
- 48 PDF objects out of 1000 (max. 8388607)
+ 49 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
