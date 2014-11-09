@@ -1,15 +1,9 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.9.18)  8 NOV 2014 20:00
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.9.11)  9 NOV 2014 10:56
 entering extended mode
 **homework.tex
-("C:\Users\louis\Documents\Cours\EPFL\CS450 AA\cs450\homework6\homework.tex"
-LaTeX2e <2011/06/27>
-Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, arabic, armenian, assamese, basque, bengali
-, bokmal, bulgarian, catalan, coptic, croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, galic
-ian, german, german-x-2013-05-26, greek, gujarati, hindi, hungarian, icelandic, indonesian, interlingua, irish, italian,
- kannada, kurmanji, latin, latvian, lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerman, ngerman
--x-2013-05-26, nynorsk, oriya, panjabi, pinyin, polish, portuguese, romanian, russian, sanskrit, serbian, slovak, sloven
-ian, spanish, swedish, swissgerman, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usenglishmax, w
-elsh, loaded.
+(C:\Users\Damien\Documents\GitHub\cs450\homework6\homework.tex
+LaTeX2e <2014/05/01>
+Babel <3.9k> and hyphenation patterns for 68 languages loaded.
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\article.cls"
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\size11.clo"
@@ -30,10 +24,10 @@ File: size11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \c@problems=\count87
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
-Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+Package: graphicx 2014/04/25 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
-Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+Package: keyval 2014/05/08 v1.15 key=value parser (DPC)
 \KV@toks@=\toks14
 )
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
@@ -184,7 +178,7 @@ Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
 )
 \c@problem=\count102
 
-("C:\Users\louis\Documents\Cours\EPFL\CS450 AA\cs450\homework6\homework.aux")
+(C:\Users\Damien\Documents\GitHub\cs450\homework6\homework.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 111.
 LaTeX Font Info:    ... okay on input line 111.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 111.
@@ -192,7 +186,8 @@ LaTeX Font Info:    ... okay on input line 111.
 LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 111.
 LaTeX Font Info:    ... okay on input line 111.
 LaTeX Font Info:    Checking defaults for OMS/pzccm/m/n on input line 111.
-LaTeX Font Info:    Try loading font information for OMS+pzccm on input line 111.
+LaTeX Font Info:    Try loading font information for OMS+pzccm on input line 11
+1.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\omspzccm.fd"
 File: omspzccm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/pzccm.
@@ -219,16 +214,19 @@ LaTeX Font Info:    ... okay on input line 111.
 )
 LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
 (Font)              scaled to size 15.55188pt on input line 114.
-LaTeX Font Info:    Try loading font information for OT1+ptmcm on input line 115.
+LaTeX Font Info:    Try loading font information for OT1+ptmcm on input line 11
+5.
  ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\ot1ptmcm.fd"
 File: ot1ptmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ptmcm.
 )
-LaTeX Font Info:    Try loading font information for OML+ptmcm on input line 115.
+LaTeX Font Info:    Try loading font information for OML+ptmcm on input line 11
+5.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\omlptmcm.fd"
 File: omlptmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ptmcm.
 )
-LaTeX Font Info:    Try loading font information for OMX+psycm on input line 115.
+LaTeX Font Info:    Try loading font information for OMX+psycm on input line 11
+5.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\omxpsycm.fd"
 File: omxpsycm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/psycm.
@@ -257,7 +255,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
 LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
 (Font)              scaled to size 10.79993pt on input line 126.
 
-("C:\Users\louis\Documents\Cours\EPFL\CS450 AA\cs450\homework6\Problem1.tex"
+(C:\Users\Damien\Documents\GitHub\cs450\homework6\Problem1.tex
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
@@ -274,34 +272,58 @@ LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/pzccm/m/n' tried instead on input line 15.
  [1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
 
- <C:/Users/louis/Documents/Cours/EPFL/CS450 AA/cs450/homework6/Diagramme1.png>]) [2]
-("C:\Users\louis\Documents\Cours\EPFL\CS450 AA\cs450\homework6\Problem2.tex"
+ <C:/Users/Damien/Documents/GitHub/cs450/homework6/Diagramme1.png>]) [2]
+(C:\Users\Damien\Documents\GitHub\cs450\homework6\Problem2.tex
 <Diagramme2.png, id=16, 317.42117pt x 325.92352pt>
 File: Diagramme2.png Graphic file (type png)
  <use Diagramme2.png>
 Package pdftex.def Info: Diagramme2.png used on input line 19.
 (pdftex.def)             Requested size: 170.71652pt x 175.29485pt.
-) [3 <C:/Users/louis/Documents/Cours/EPFL/CS450 AA/cs450/homework6/Diagramme2.png>] ("C:\Users\louis\Documents\Cours\EPF
-L\CS450 AA\cs450\homework6\Problem3.tex")
-[4] ("C:\Users\louis\Documents\Cours\EPFL\CS450 AA\cs450\homework6\Problem4.tex") [5]
-("C:\Users\louis\Documents\Cours\EPFL\CS450 AA\cs450\homework6\homework.aux") ) 
+)
+[3 <C:/Users/Damien/Documents/GitHub/cs450/homework6/Diagramme2.png>]
+(C:\Users\Damien\Documents\GitHub\cs450\homework6\Problem3.tex
+<fig2.png, id=20, 697.1646pt x 168.63pt>
+File: fig2.png Graphic file (type png)
+ <use fig2.png>
+Package pdftex.def Info: fig2.png used on input line 16.
+(pdftex.def)             Requested size: 398.33858pt x 96.34909pt.
+
+<fig4.png, id=22, 277.5168pt x 144.0582pt>
+File: fig4.png Graphic file (type png)
+ <use fig4.png>
+Package pdftex.def Info: fig4.png used on input line 41.
+(pdftex.def)             Requested size: 227.62204pt x 118.15704pt.
+ [4 <C:/Users/Damien/Documents/GitHub/cs450/homework6/fig2.png>]) [5 <C:/Users/
+Damien/Documents/GitHub/cs450/homework6/fig4.png>]
+(C:\Users\Damien\Documents\GitHub\cs450\homework6\Problem4.tex
+Overfull \hbox (0.40942pt too wide) in paragraph at lines 11--21
+\OT1/ptm/m/n/10.95 that at ev-ery step the two posi-bil-i-ties (that the da-tum
+ is in $[]$ or in $[]$)
+ []
+
+) [6] (C:\Users\Damien\Documents\GitHub\cs450\homework6\homework.aux) ) 
 Here is how much of TeX's memory you used:
- 2454 strings out of 493921
- 32053 string characters out of 3144876
- 81872 words of memory out of 3000000
- 5692 multiletter control sequences out of 15000+200000
- 40737 words of font info for 92 fonts, out of 3000000 for 9000
- 841 hyphenation exceptions out of 8191
- 27i,6n,26p,437b,226s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files (x86)/MiKTeX 2.9/fonts/
-enc/dvips/fontname/8r.enc}<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files
- (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfont
-s/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Program Files (x86)/MiKTeX 2.
-9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files
- (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on homework.pdf (5 pages, 85843 bytes).
+ 2475 strings out of 493706
+ 32063 string characters out of 3142162
+ 85882 words of memory out of 3000000
+ 5729 multiletter control sequences out of 15000+200000
+ 46166 words of font info for 101 fonts, out of 3000000 for 9000
+ 1025 hyphenation exceptions out of 8191
+ 27i,6n,26p,583b,226s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Prog
+ram Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files (x
+86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files (x86
+)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiK
+TeX 2.9/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Program Files (x86)/
+MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Program Files (x86)/MiKTeX 2
+.9/fonts/type1/urw/symbol/usyr.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/typ
+e1/urw/times/utmb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/time
+s/utmr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.p
+fb>
+Output written on homework.pdf (6 pages, 137985 bytes).
 PDF statistics:
- 49 PDF objects out of 1000 (max. 8388607)
+ 65 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

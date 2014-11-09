@@ -1,0 +1,21 @@
+Let suppose that we want to classify data in a set of disjoint classes $C={C_1,...,C_k}$. To classify this data, we will present two algorithms.
+
+\paragraph{}
+The first algorithm that we present is a simple one: at a given step, if the remaining possible classes are $C'={C_1,...,C_i}$, we test if the sample is of class $C_i$ or in one of the classes $C_1,...,C_i-1$ by a 2-class classification; and continue until we have found the correct class.
+\newline
+Classifying a datum with this algorithm takes $O(k)$ (wich is quite slow), but we need only few steps of training i.e $\Theta(k)$.
+\newline
+With this algorithm, if we know the probability distribution of the classes, we can sort the classes by their probabilty so that we make fewer classification steps in average.
+
+\paragraph{}
+To make the classification of a datum faster, the second algorithm that we present finds the class of a datum by dichotomic search among the classes: at a given step , if the remaining possible classes are $C'={C_i,...,C_j}$, then we determine wether the sample is in ${C_i,...,C_{i+\lfloor \frac{j-i}{2} \rfloor}}$ or in ${C_{i+1+\lfloor \frac{j-i}{2} \rfloor},...,C_j}$ by a 2-class clasification.
+\newline
+This way, after the training, we can classify any sample really fast: we can do it in logarithmic time. However, the training takes much more time, i.e $\Theta(klog(k))$ training steps are needed.
+\newline
+With this algorithm, if we know the probabilty distribution of the classes, we can try to enforce that at every step the two posibilities (that the datum is in ${C_i,...,C_{i+\lfloor \frac{j-i}{2} \rfloor}}$ or in ${C_{i+1+\lfloor \frac{j-i}{2} \rfloor},...,C_j}$) are as likely as possible.
+\newline
+To enforce that, we can use the Huffmann algorithm to build an Huffmann tree: starting from the separate classes $C_1,...,C_k$ that will be the leaves of the classification tree, we iteratively group the two less likely nodes of the tree by setting them the same parent node and giving to this node the sum of his children nodes probabilities as his probability.
+The construction of a Huffmann tree can be done in $O(klog(k)$ if we need to sort the classes by probability.
+\newline
+With this way, we will have a really good classification system in average.
+
