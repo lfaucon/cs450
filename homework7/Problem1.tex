@@ -13,7 +13,7 @@ More generally, if we want to unroll all the recursion steps and write the cost 
 \begin{figure}[h!]
 \begin{center}
    \includegraphics[width=8cm]{recursionTree}
-   \caption{Recursion tree with cost of running algorithm A at each node}
+   \caption{Recursion tree with the cost of running algorithm A at each node}
 \end{center}
 \end{figure}
 
@@ -35,3 +35,4 @@ $t(m,n)$  & $ = \Theta( \sum_{j=0}^{l} { m 2^j } )$
 \\ & $ = \Theta(mn)$
 \end{tabular}
 
+In general, when $n$ is not a power of two, the previous result holds (but the hidden constant is bigger): we can replace in the analysis $n$ by the next power of two $n'$ which is at worst really near as being twice $n$ to see that we still have an execution time of $\Theta(mn')=\Theta(2mn)=\Theta(mn)$.
