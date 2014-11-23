@@ -1,0 +1,17 @@
+\paragraph{}
+We must start by noticing that there is an optimal solution that respects $c_{a_1} \leq c_{a_2} ... \leq c_{a_n}$ given $s_1 \leq s_2 ... \leq s_n$. Indeed the finite number of solution implies the existence of an optimal and for every cases (description bellow) it's better or the same to have things sorted.
+
+\paragraph{}
+Let suppose we have a solution and for $i < j, c_{a_i} \geq c_{a_j}$: 
+\paragraph{}
+\begin{tabular}{rccl}
+Case 1 : & $s_i \leq c_{a_i} \wedge s_j \leq c_{a_j} $ & gives & $|s_i - c_{a_i}|+|s_j - c_{a_j}| = |s_i - c_{a_j}|+|s_j - c_{a_i}|$ \\
+Case 2 : & $s_i \geq c_{a_i} \wedge s_j \geq c_{a_j} $ & gives & $|s_i - c_{a_i}|+|s_j - c_{a_j}| = |s_i - c_{a_j}|+|s_j - c_{a_i}|$ \\
+Case 3 : & $s_i \leq c_{a_i} \wedge s_j \geq c_{a_j} $ & gives & $|s_i - c_{a_i}|+|s_j - c_{a_j}| \geq |s_i - c_{a_j}|+|s_j - c_{a_i}| $ \\
+\end{tabular}
+
+\paragraph{}
+We are now going to dynamically compute the value of the best arrangement for the $i$ smallest groups of students in the $j$ smallest classrooms. We easily fill up all the values using the induction rule $value(i,j) = min( value(i,j-1) , value(i-1,j-1) + |s_i-c_j| )$. To retrieve the optimal arrangement, we just need to remember our choice whether to put $s_i$ in $c_j$ or not at each step. Our algorithm turn in O(nm).
+
+
+
