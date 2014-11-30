@@ -1,0 +1,20 @@
+
+\paragraph{}
+We first want to realize that for any parenthesization. We can write the following : 
+
+\[parenthesization(x_1/x_2/.../x_n) = \prod x_i^{d_i}\]
+
+\paragraph{}
+Where $d_i = \pm 1$. For any parenthesization we always have $d_1 = 1$ and $d_2 = -1$. For the remaining $d_i$ the optimum would be to have $d_i = 1$ when $x_i > 1$ and $d_i = -1$ when $x_i < 1$. We can obtain this result with a simple parenthesization. 
+
+\paragraph{}
+When not using parenthesis the divisions are computed from the left to the right. For example the following parenthesization gives us : 
+
+\[x_1/x_2/...(x_a/.../x_b)/.../x_n = \prod x_i^{d_i}\]
+
+\paragraph{}
+with $d_a = -1$ and $d_{a+1} = ... = d_b = 1$. All other $d_i$ but $d_1$ is $-1$. With this in head we can easily include inside parenthesis all the $x_i$ bigger than 1. For any consecutive list of elements $x_a,...,x_{b+1}$ where $x_a < 1$, $x_{a+1}>1,...,x_b>1$ and $x_{b+1}<1$ we just want to include inside parenthesis the elements from $x_a$ to $x_b$. This gives us the optimal solution describe above and implies an easy linear time algorithm.
+
+
+
+
