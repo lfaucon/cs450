@@ -1,0 +1,9 @@
+To devise a dynamic programming algorithm, we need to note that when $A[1]$ is popped, the stack is empty. This means that popping $A[1]$ defines a separating step in the process that can be used to see this problem as two instances of the same problem on smaller arrays. Let's call $t$ the time at which $A[1]$ is popped from the stack : this means that $t-1$ elements were popped before $A[1]$, these elements can only be $A[2],...,A[t]$ (in an unknown order). Thus, we can express the minimal cost that can be achieved when $A[1]$ is popped at time $t$ as :
+
+$Cost_{t}(A[1,end]) = minCost(A[2,t])+minCost(A[t+1,end])+t A[1]+t\sum_{i}{A[i+t]}$
+
+And, we have :
+
+$minCost(A[1,end]) = min_{t}\ Cost_{t}(A[1,end]) $.
+
+These formulas can be used to devise a dynamic programming algorithm : we store in a 2D array the value of $minCost(A[i,j])$. We can easily fill in this array by computing the value in order of increasing $j-i$. Each value is computed as a minimum over $t$, thus this algorithm runs in $O(n^3).$
