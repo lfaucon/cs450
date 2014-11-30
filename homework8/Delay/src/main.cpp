@@ -84,12 +84,14 @@ path_and_delay findBestPath( const path_t& points ) {
 typedef std::vector<int> points_array_t;
 
 // find the best sub path containing all the points between i and j (included)
+// end will be k
 path_and_delay findBestSubPathEndIsLeftDP(
   const points_array_t& global_points_array,
   path_and_delay * endIsLeftCached,
   path_and_delay * endIsRightCached,
   int i,
   int j );
+
 path_and_delay findBestSubPathEndIsRightDP(
   const points_array_t& global_points_array,
   path_and_delay * endIsLeftCached,
@@ -121,19 +123,19 @@ path_and_delay findBestSubPathEndIsLeftDP(
 
     // best path with points[0] as an end point: end is on the left
     path_and_delay bestP0 = findBestSubPathEndIsLeftDP( points, endIsLeftCached, endIsRightCached, i+1, j );
-    bestP0.delay += udiff( points[i], points[ bestP0.path[ bestP0.path.size()-1 ] ] );
+    bestP0.delay += udiff( points[i], points[ bestP0.path.back() ] );
     bestP0.tot_delay += bestP0.delay;
     bestP0.path.push_back( i );
 
     // best path with points[n-1] as an end point: end is on the right
     path_and_delay bestPn = findBestSubPathEndIsRightDP( points, endIsLeftCached, endIsRightCached, i, j-1 );
-    bestPn.delay += udiff( points[j], points[ bestPn.path[ bestPn.path.size()-1 ] ] );
+    bestPn.delay += udiff( points[j], points[ bestPn.path.back() ] );
     bestPn.tot_delay += bestPn.delay;
     bestPn.path.push_back( j );
 
 
-    if( bestP0.tot_delay + bestP0.delay + udiff( p, points[ bestP0.path[ bestP0.path.size()-1 ] ]  )
-	<= bestPn.tot_delay + bestPn.delay + udiff( p, points[ bestPn.path[ bestPn.path.size()-1 ] ] ) ) {
+    if( bestP0.tot_delay + bestP0.delay + udiff( p, points[ bestP0.path.back() ]  )
+	<= bestPn.tot_delay + bestPn.delay + udiff( p, points[ bestPn.path.back() ] ) ) {
       endIsLeftCached[ i*n + j ] = bestP0;
       return bestP0;
     }else{
@@ -166,19 +168,19 @@ path_and_delay findBestSubPathEndIsRightDP(
 
     // best path with points[0] as an end point: end is on the left
     path_and_delay bestP0 = findBestSubPathEndIsLeftDP( points, endIsLeftCached, endIsRightCached, i+1, j );
-    bestP0.delay += udiff( points[i], points[ bestP0.path[ bestP0.path.size()-1 ] ] );
+    bestP0.delay += udiff( points[i], points[ bestP0.path.back() ] );
     bestP0.tot_delay += bestP0.delay;
     bestP0.path.push_back( i );
 
     // best path with points[n-1] as an end point: end is on the right
     path_and_delay bestPn = findBestSubPathEndIsRightDP( points, endIsLeftCached, endIsRightCached, i, j-1 );
-    bestPn.delay += udiff( points[j], points[ bestPn.path[ bestPn.path.size()-1 ] ] );
+    bestPn.delay += udiff( points[j], points[ bestPn.path.back() ] );
     bestPn.tot_delay += bestPn.delay;
     bestPn.path.push_back( j );
 
 
-    if( bestP0.tot_delay + bestP0.delay + udiff( p, points[ bestP0.path[ bestP0.path.size()-1 ] ]  )
-	<= bestPn.tot_delay + bestPn.delay + udiff( p, points[ bestPn.path[ bestPn.path.size()-1 ] ] ) ) {
+    if( bestP0.tot_delay + bestP0.delay + udiff( p, points[ bestP0.path.back() ]  )
+	<= bestPn.tot_delay + bestPn.delay + udiff( p, points[ bestPn.path.back() ] ) ) {
       endIsRightCached[ i*n + j ] = bestP0;
       return bestP0;
     }else{
@@ -202,13 +204,13 @@ path_and_delay findBestPathDP( const points_array_t& points ) {
 
   // best path with points[0] as an end point
   path_and_delay bestP0 = findBestSubPathEndIsLeftDP( points, endIsLeftCached, endIsRightCached, 1, points.size()-1 );
-  bestP0.delay += udiff( points[0], points[ bestP0.path[ bestP0.path.size()-1 ] ] );
+  bestP0.delay += udiff( points[0], points[ bestP0.path.back() ] );
   bestP0.tot_delay += bestP0.delay;
   bestP0.path.push_back( 0 );
 
   // best path with points[n-1] as an end point
   path_and_delay bestPn = findBestSubPathEndIsRightDP( points, endIsLeftCached, endIsRightCached, 0, points.size()-2 );
-  bestPn.delay += udiff( points[points.size()-1], points[ bestPn.path[ bestPn.path.size()-1 ] ] );
+  bestPn.delay += udiff( points.back(), points[ bestPn.path.back() ] );
   bestPn.tot_delay += bestPn.delay;
   bestPn.path.push_back( points.size()-1 );
 
