@@ -1,4 +1,13 @@
-
+\paragraph{}
+It would be easy to find a dynamic algorithm running in $O(n^3)$ with the following approach: finding the best parenthesization is finding the index $i$ such that the we can get the maximum from the parenthesization of the first terms $x_1,...,x_i$ and the minimum from the parenthesization of the terms $x_{i+1},...,x_n$.
+\newline
+Therefore, we only need to have two matrices to compute and store the maximum (minimum respectively) that we can get from the parenthesization of the sequence of terms $x_i,...,x_j$, and the associated parenthesizations.
+\newline
+We can start by initialising those two matrices for sequences of length 1 and 2 (for which we have no choice of parenthesization), and then filling out the other entries of the matrices by increasing length of sequence.
+\newline
+Then the running time is $O(n^3)$ because we have two matrices of size $n^2$ to fill, and that for each entry of these matrices, we need to find the best solution among at most $n$ possible solutions (we use a very loose bound here...).
+\newline
+However, one of us has come with another approach...
 \paragraph{}
 We first want to realize that for any parenthesization. We can write the following : 
 
