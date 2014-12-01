@@ -1,0 +1,43 @@
+We assume that we want to find the best path $Q$ such that the sum of delays is minimized given a list of points $[p_1,..,p_n]$ (sorted by absciss).
+
+\subsection*{Some remarks about the meaningful paths}
+
+A meaningful path $Q$ is given by the sequence in which we visit the points. In a meaningful path $Q$, the index $i$ of a point $p_i$ is written once and only once.
+\newline
+For such a path $Q$, $Q=q_1..q_n$ (where $\forall i, q_i \in \{1,..,n\}$) means: we first go to the point of index $q_1$, then $q_2$ and so on, until we finish by going to $q_n$.
+\newline
+A meaningful path $Q$ is such that when we go from the point of index $q_i$ to the point $q_{i+1}$, we have already been to the points $q \in \{min(q_i,q_{i+1}), ..., max(q_i, q_{i+1})-1\}$, i.e $\forall i \in \{1,..,n-1\}, \forall q \in \{min(q_i,q_{i+1}), ..., max(q_i, q_{i+1})-1\}, \exists j \in \{1,..,i-1\} such\  that q_j=q$.
+
+If we look at how a meaningful path $Q$ can end, we can see that it cannot end by going to an interior point: the path must end either at $p_1$ or $p_n$ because if it is not the case, then we would have visited $p_1$ and $p_n$ before, thus violating our conventions for a meaningful path.
+
+\subsection*{How to reduce the problem}
+
+Therefore, we know that our best path $Q$ is the best solution between the solutions:
+\begin{itemize}
+\item $Q_{end\ right}=Q_{next\ is\ right\ \{1,..,n-1\}}n$ where $Q_{next\ is\ right\ \{1,..,n-1\}}$ is the meaningful path with minimal delay passing by $p_1,..,p_{n-1}$ and for which we know that we will end the path by going right at point of index $n$,
+\item or the solution $Q_{end\ left}=Q_{next\ is\ left\ \{2,..,n\}}1$ where $Q_{next\ is\ left\ \{2,..,n\}}$ is the meaningful path with minimal delay passing by $p_2,..,p_n$ and for which we know that we will end the path by going left at point of index $1$
+\end{itemize}
+
+Thus, we want to be able to determine $Q_{next\ is\ right\ \{1,..,n-1\}}$ and $Q_{next\ is\ left\ \{2,..,n\}}$. This is easy by doing it recursively if we define $Q_{next\ is\ right\ \{i,..,j\}}$ $\forall 1 \leq i \leq j<n$ and $Q_{next\ is\ left\ \{i,..,j\}}$ $\forall 1<i \leq j \leq n$:
+\begin{itemize}
+\item if $i=j$ then $Q_{next\ is\ right\ \{i\}} = i$
+\item $\forall i<j, Q_{next\ is\ right\ \{i,..,j\}}$ is the sub-path $Q_{next\ is\ right\ \{i,..,j-1\}}j$ or $Q_{next\ is\ left\ \{i+1,..,j\}}i$ (it is $Q_{next\ is\ right\ \{i,..,j-1\}}j$ if the path $Q_{next\ is\ right\ \{i,..,j-1\}}j(j+1)$ has the lowest total delay)    
+\item if $i=j$ then $Q_{next\ is\ left\ \{i\}} = i$
+\item $\forall i<j, Q_{next\ is\ left\ \{i,..,j\}}$ is the sub-path $Q_{next\ is\ right\ \{i,..,j-1\}}j$ or $Q_{next\ is\ left\ \{i+1,..,j\}}i$ (it is $Q_{next\ is\ right\ \{i,..,j-1\}}j$ if the path $Q_{next\ is\ right\ \{i,..,j-1\}}j(i-1)$ has the lowest total delay) 
+\end{itemize}
+
+With such definitions, $Q_{next\ is\ right\ \{i,..,j\}}$ is the best sub-path knowing that the next step is to go to the point of index $j+1$, while $Q_{next\ is\ left\ \{i,..,j\}}$ is the best sub-path knowing that the next step is to go to the point of index $i-1$.
+
+\subsection*{Using dynamic programming}
+
+We use $memoization$ to compute and store the different sub-paths $Q_{next\ is\ right\ \{i,..,j\}}, \forall 1 \leq i \leq j < n$ and $Q_{next\ is\ left\ \{i,..,j\}} \forall 1 < i \leq j \leq n$ effectively.
+\newline
+For that, we store the two types of sub-paths in two square matrices of size $n \times n$ each (but we use only the upper-left $\frac{n(n-1)}{2}$ elements in each matrix for example, because our sequences are such that $i<j$).
+\newline
+The algorithm that we have really implemented is recursive: we only compute a sub-path if it is not in the corresponding cache.
+\newline
+However, we can implement a fully sequential algorithm easily: we initialize first the sub-paths of length 1 with the point they contain and a zero delay; then, for each size of sequence $l$ (increasing), we compute the sub-paths thanks to the sub-paths of size $l-1$.
+
+\subsection*{Running time and implementation}
+The running time of the algorithm is therefore $\Theta(n^2)$ due to the size of our sub-paths caches and that to determine a bigger sub-path (either finishing on the right or on the left) we only have two possibilities of doing so.
+Because we had some difficulties to find this algorithm, we have made an implementation of it. Feel free to ask it.
